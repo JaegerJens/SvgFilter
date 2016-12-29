@@ -1,0 +1,33 @@
+<html>
+<body>
+<!-- example from https://developer.mozilla.org/en-US/docs/Web/SVG/Element/feColorMatrix -->
+<svg width="100%" height="360" viewBox="0 0 150 360"
+    preserveAspectRatio="xMidYMid meet"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+    <text x="70" y="50">Reference</text>
+
+    <filter id="colorMeMatrix">
+    <feColorMatrix in="SourceGraphic"
+        type="matrix"
+        values="0 0 0 0 0
+                0 0 0 0 0
+                0 0 0 1 0
+                0 0 0 1 0" />
+    </filter>
+
+    <g filter="url(#colorMeMatrix)">
+        <!-- transform black text into blue text with SVG filter -->
+        <text x="70" y="80">Annotation</text>
+        <circle cx="30" cy="100" r="20" fill="blue"  fill-opacity="0.5" />
+        <circle cx="20" cy="120" r="20" fill="green" fill-opacity="0.5" />
+        <circle cx="40" cy="120" r="20" fill="red"   fill-opacity="0.5" />
+    </g>
+</svg>
+
+<!-- apply this filter to html
+https://developer.mozilla.org/en-US/docs/Web/SVG/Applying_SVG_effects_to_HTML_content
+-->
+<p style="filter: url(#colorMeMatrix)">lorem ipsum</p>
+</body>
+</html>
